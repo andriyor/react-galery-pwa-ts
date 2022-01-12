@@ -78,3 +78,13 @@ self.addEventListener('message', (event) => {
 });
 
 // Any other custom service worker logic can go here.
+
+
+// dont ned alrady seetuped
+// (C) LOAD FROM CACHE, FALLBACK TO NETWORK IF NOT FOUND
+// self.addEventListener("fetch", (evt) => {
+//     evt.respondWith(
+//         caches.match(evt.request)
+//             .then((res) => { return res || fetch(evt.request); })
+//     );
+// });
