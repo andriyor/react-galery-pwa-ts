@@ -80,7 +80,7 @@ self.addEventListener('message', (event) => {
 // Any other custom service worker logic can go here.
 
 
-// dont ned alrady seetuped
+// don't need already setup
 // (C) LOAD FROM CACHE, FALLBACK TO NETWORK IF NOT FOUND
 // self.addEventListener("fetch", (evt) => {
 //     evt.respondWith(

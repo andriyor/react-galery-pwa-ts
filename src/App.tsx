@@ -42,15 +42,10 @@ function App() {
   }, []);
 
   const handleClick = (event: any) => {
-    console.log(event.target.files);
-    console.log(event.target.files);
-
     Object.values(event.target.files).forEach((file: any) => {
       let url = URL.createObjectURL(file);
-      console.log(url);
       fetch(url).then((res) => {
         caches.open(cacheName).then(async (cache) => {
-          // SAVE IMAGE INTO CACHE
           await cache.put('pic-' + nanoid() + '.png', res);
           URL.revokeObjectURL(url);
         });
@@ -66,7 +61,6 @@ function App() {
       <h2>{images.flat().length}</h2>
 
       <input type="file" id="input" onChange={handleClick} multiple />
-      {/*{images.map((imageList) => imageList.map((image) => <img key={image.url} src={image.url} />))}*/}
 
       <div className="row">
         {images.map((imageList) => (
@@ -77,43 +71,6 @@ function App() {
           </div>
         ))}
       </div>
-
-      {/*<div className="row">*/}
-      {/*  <div className="column">*/}
-      {/*    <img src="https://www.w3schools.com/w3images/wedding.jpg" style={{ width: '100%' }} />*/}
-      {/*    <img src="https://www.w3schools.com/w3images/rocks.jpg" style={{ width: '100%' }} />*/}
-      {/*    <img src="https://www.w3schools.com/w3images/falls2.jpg" style={{ width: '100%' }} />*/}
-      {/*    <img src="https://www.w3schools.com/w3images/paris.jpg" style={{ width: '100%' }} />*/}
-      {/*    <img src="https://www.w3schools.com/w3images/nature.jpg" style={{ width: '100%' }} />*/}
-      {/*    <img src="https://www.w3schools.com/w3images/mist.jpg" style={{ width: '100%' }} />*/}
-      {/*    <img src="https://www.w3schools.com/w3images/paris.jpg" style={{ width: '100%' }} />*/}
-      {/*  </div>*/}
-      {/*  <div className="column">*/}
-      {/*    <img src="https://www.w3schools.com/w3images/underwater.jpg" style={{ width: '100%' }} />*/}
-      {/*    <img src="https://www.w3schools.com/w3images/ocean.jpg" style={{ width: '100%' }} />*/}
-      {/*    <img src="https://www.w3schools.com/w3images/wedding.jpg" style={{ width: '100%' }} />*/}
-      {/*    <img src="https://www.w3schools.com/w3images/mountainskies.jpg" style={{ width: '100%' }} />*/}
-      {/*    <img src="https://www.w3schools.com/w3images/rocks.jpg" style={{ width: '100%' }} />*/}
-      {/*    <img src="https://www.w3schools.com/w3images/underwater.jpg" style={{ width: '100%' }} />*/}
-      {/*  </div>*/}
-      {/*  <div className="column">*/}
-      {/*    <img src="https://www.w3schools.com/w3images/wedding.jpg" style={{ width: '100%' }} />*/}
-      {/*    <img src="https://www.w3schools.com/w3images/rocks.jpg" style={{ width: '100%' }} />*/}
-      {/*    <img src="https://www.w3schools.com/w3images/falls2.jpg" style={{ width: '100%' }} />*/}
-      {/*    <img src="https://www.w3schools.com/w3images/paris.jpg" style={{ width: '100%' }} />*/}
-      {/*    <img src="https://www.w3schools.com/w3images/nature.jpg" style={{ width: '100%' }} />*/}
-      {/*    <img src="https://www.w3schools.com/w3images/mist.jpg" style={{ width: '100%' }} />*/}
-      {/*    <img src="https://www.w3schools.com/w3images/paris.jpg" style={{ width: '100%' }} />*/}
-      {/*  </div>*/}
-      {/*  <div className="column">*/}
-      {/*    <img src="https://www.w3schools.com/w3images/underwater.jpg" style={{ width: '100%' }} />*/}
-      {/*    <img src="https://www.w3schools.com/w3images/ocean.jpg" style={{ width: '100%' }} />*/}
-      {/*    <img src="https://www.w3schools.com/w3images/wedding.jpg" style={{ width: '100%' }} />*/}
-      {/*    <img src="https://www.w3schools.com/w3images/mountainskies.jpg" style={{ width: '100%' }} />*/}
-      {/*    <img src="https://www.w3schools.com/w3images/rocks.jpg" style={{ width: '100%' }} />*/}
-      {/*    <img src="https://www.w3schools.com/w3images/underwater.jpg" style={{ width: '100%' }} />*/}
-      {/*  </div>*/}
-      {/*</div>*/}
     </div>
   );
 }
